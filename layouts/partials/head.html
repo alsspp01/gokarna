@@ -39,7 +39,7 @@
 
     {{- with .Site.Params.favicon }}
     <link rel='icon' type='image/png' href='{{ . | absURL }}'>
-    {{- end -}}
+    {{- end }}
     
     {{ $cssNormalize := resources.Get "css/normalize.min.css" }}
     <link rel="stylesheet" type="text/css" href="{{ $cssNormalize.RelPermalink }}" media="print">
