@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #4d93fd;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>SQLi parsing AI</title>
+    <meta name="description" content="Republic of Korea 대한민국">
+    <meta name="keywords" content='blog, gokarna, hugo'>
+
+    <meta property="og:url" content="http://localhost:1313/projects/sqli-parsing-ai/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SQLi parsing AI">
+    <meta property="og:description" content="Republic of Korea 대한민국">
+    <meta property="og:image" content="http://localhost:1313/image/profile/MainCat.jpg">
+    <meta property="og:image:secure_url" content="http://localhost:1313/image/profile/MainCat.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SQLi parsing AI">
+    <meta name="twitter:description" content="Republic of Korea 대한민국">
+    <meta property="twitter:domain" content="http://localhost:1313/projects/sqli-parsing-ai/">
+    <meta property="twitter:url" content="http://localhost:1313/projects/sqli-parsing-ai/">
+    <meta name="twitter:image" content="http://localhost:1313/image/profile/MainCat.jpg">
+
+    
+    <link rel="canonical" href="http://localhost:1313/projects/sqli-parsing-ai/">
+    <link rel='icon' type='image/png' href='http://localhost:1313/image/profile/favicon-16x16.png'>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.893af8dd3b65bd0ffe90e7af33847bd6dc9180b8fa6d6659a212a6f4b62d3e01.js" integrity="sha256-iTr43TtlvQ/&#43;kOevM4R71tyRgLj6bWZZohKm9LYtPgE="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="http://localhost:1313/">
+                <img src='/image/profile/MainCat.jpg' alt="avatar">
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">Dyun&#39;s blog</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/posts/"><span data-feather='pen-tool'></span> posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/projects/"><span data-feather='box'></span> projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/tags/"><span data-feather='hash'></span> tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/alsspp01"><span data-feather='github'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target"></span>
+                <a>
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/posts/"><span data-feather='pen-tool'></span> posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/projects/"><span data-feather='box'></span> projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/tags/"><span data-feather='hash'></span> tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/alsspp01"><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a>
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    
+
+    <div class="post container">
+
+    <div class="post-header-section">
+        <h1>SQLi parsing AI</h1>
+    </div>
+
+    <div class="post-content">
+        <h3 id="제작-계기">제작 계기</h3>
+<p>SQL injection query는 사람이 보면 구분할 수 있지만, 기본적으로 컴퓨터는 구분하지 못한다.<br>
+이에 따라 SQL injection query를 구분해내는 AI 모델을 생성하여 SQL injection 내부 대응책을 설립하기 어려운 중소기업 웹 개발자들에게 도움을 주고자 한다.</p>
+<h3 id="sql-injection이란">SQL injection이란?</h3>
+<p>웹 애플리케이션과 데이터베이스 간의 연동에서 발생하는 취약점을 이용해,<br>
+공격자가 입력 폼에 악의적으로 조작된 쿼리를 삽입해<br>
+데이터베이스 정보를 불법적으로 열람하거나 조작하는 공격</p>
+<h3 id="overview">Overview</h3>
+<ol>
+<li>구문 분석을 위해 Secquence Data로 전처리</li>
+<li>전처리 시 문법적인 부분을 강조하기 위해 기호, SQL 문법 구성 단어를 기준으로 feature 추출</li>
+<li>기호, SQL언어, 변수, 처리되지 않은 일반 string 순으로 분류하여 토큰화, 정규화</li>
+<li>Sezuence Data를 처리할 수 있는 모델 - LSTM(Long Short-Term Memory) 사용</li>
+<li>F1 Score 등을 통해 검증</li>
+</ol>
+<h3 id="process">Process</h3>
+<h4 id="1-사용한-모듈">1. 사용한 모듈</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> re
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> sklearn.model_selection <span style="color:#f92672">import</span> train_test_split
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tensorflow.keras.models <span style="color:#f92672">import</span> Sequential
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tensorflow.keras.layers <span style="color:#f92672">import</span> Embedding, LSTM, Dense, Dropout, BatchNormalization
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tensorflow.keras.callbacks <span style="color:#f92672">import</span> EarlyStopping
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> tensorflow.keras.preprocessing.sequence <span style="color:#f92672">import</span> pad_sequences
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span></code></pre></div><h4 id="2-데이터-구조-분석">2. 데이터 구조 분석</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># CSV 파일 읽어오기</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;./clean_sql_dataset.csv&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 데이터프레임 구조 확인</span>
+</span></span><span style="display:flex;"><span>print(data<span style="color:#f92672">.</span>head())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 데이터프레임의 컬럼 이름 확인</span>
+</span></span><span style="display:flex;"><span>print(data<span style="color:#f92672">.</span>columns)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Label 값의 개수 세기</span>
+</span></span><span style="display:flex;"><span>label_counts <span style="color:#f92672">=</span> data[<span style="color:#e6db74">&#39;Label&#39;</span>]<span style="color:#f92672">.</span>value_counts()
+</span></span><span style="display:flex;"><span>print(label_counts)
+</span></span></code></pre></div><h5 id="실행-결과">실행 결과</h5>
+<p><img src="/image/sqli-parsing-ai/capture01.png" alt="데이터구조분석"></p>
+<h4 id="3-tokenize">3. Tokenize</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tokenize_query</span>(query):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 정규 표현식 패턴 정의</span>
+</span></span><span style="display:flex;"><span>    token_pattern <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    (--|/\*|\*/)                         # 주석 기호만
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    |([+\-*/%&amp;|^~=&lt;&gt;!]=?)                # 연산자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    |([(),;])                            # 구분자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    |([.\[\]</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">])                         # 특수 문자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    |(\b\w+\b)                           # 단어 (키워드, 변수명 등)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    |([^\s])                             # 기타 모든 문자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;&#39;</span>, re<span style="color:#f92672">.</span>MULTILINE <span style="color:#f92672">|</span> re<span style="color:#f92672">.</span>DOTALL <span style="color:#f92672">|</span> re<span style="color:#f92672">.</span>VERBOSE)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 패턴 적용하여 토큰화</span>
+</span></span><span style="display:flex;"><span>    tokens <span style="color:#f92672">=</span> token_pattern<span style="color:#f92672">.</span>findall(query)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    result_tokens <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> token_tuple <span style="color:#f92672">in</span> tokens:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> token <span style="color:#f92672">in</span> token_tuple:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> token:
+</span></span><span style="display:flex;"><span>                result_tokens<span style="color:#f92672">.</span>append(token<span style="color:#f92672">.</span>strip())
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result_tokens
+</span></span></code></pre></div><p>정규표현식으로 주석, 연산자, 구분자, 특수문자와 같은 기호와 일반 단어를 구분한다.</p>
+<h5 id="실행-결과-1">실행 결과</h5>
+<p><img src="/image/sqli-parsing-ai/capture02.png" alt="토큰화"></p>
+<h4 id="4-normalize">4. Normalize</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">normalize_query</span>(tokens):
+</span></span><span style="display:flex;"><span>    normalized_tokens <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    sql_keywords <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;SELECT&#34;</span>, <span style="color:#e6db74">&#34;FROM&#34;</span>, <span style="color:#e6db74">&#34;WHERE&#34;</span>, <span style="color:#e6db74">&#34;INSERT&#34;</span>, <span style="color:#e6db74">&#34;INTO&#34;</span>, <span style="color:#e6db74">&#34;VALUES&#34;</span>, <span style="color:#e6db74">&#34;UPDATE&#34;</span>, <span style="color:#e6db74">&#34;SET&#34;</span>, <span style="color:#e6db74">&#34;DELETE&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;JOIN&#34;</span>, <span style="color:#e6db74">&#34;INNER&#34;</span>, <span style="color:#e6db74">&#34;OUTER&#34;</span>, <span style="color:#e6db74">&#34;LEFT&#34;</span>, <span style="color:#e6db74">&#34;RIGHT&#34;</span>, <span style="color:#e6db74">&#34;FULL&#34;</span>, <span style="color:#e6db74">&#34;ON&#34;</span>, <span style="color:#e6db74">&#34;AND&#34;</span>, <span style="color:#e6db74">&#34;OR&#34;</span>, <span style="color:#e6db74">&#34;NOT&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;NULL&#34;</span>, <span style="color:#e6db74">&#34;LIKE&#34;</span>, <span style="color:#e6db74">&#34;IN&#34;</span>, <span style="color:#e6db74">&#34;EXISTS&#34;</span>, <span style="color:#e6db74">&#34;BETWEEN&#34;</span>, <span style="color:#e6db74">&#34;GROUP&#34;</span>, <span style="color:#e6db74">&#34;BY&#34;</span>, <span style="color:#e6db74">&#34;ORDER&#34;</span>, <span style="color:#e6db74">&#34;HAVING&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;LIMIT&#34;</span>, <span style="color:#e6db74">&#34;OFFSET&#34;</span>, <span style="color:#e6db74">&#34;DISTINCT&#34;</span>, <span style="color:#e6db74">&#34;AS&#34;</span>, <span style="color:#e6db74">&#34;CASE&#34;</span>, <span style="color:#e6db74">&#34;WHEN&#34;</span>, <span style="color:#e6db74">&#34;THEN&#34;</span>, <span style="color:#e6db74">&#34;ELSE&#34;</span>, <span style="color:#e6db74">&#34;END&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;CREATE&#34;</span>, <span style="color:#e6db74">&#34;TABLE&#34;</span>, <span style="color:#e6db74">&#34;PRIMARY&#34;</span>, <span style="color:#e6db74">&#34;KEY&#34;</span>, <span style="color:#e6db74">&#34;FOREIGN&#34;</span>, <span style="color:#e6db74">&#34;REFERENCES&#34;</span>, <span style="color:#e6db74">&#34;DROP&#34;</span>, <span style="color:#e6db74">&#34;ALTER&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;ADD&#34;</span>, <span style="color:#e6db74">&#34;COLUMN&#34;</span>, <span style="color:#e6db74">&#34;INDEX&#34;</span>, <span style="color:#e6db74">&#34;VIEW&#34;</span>, <span style="color:#e6db74">&#34;TRIGGER&#34;</span>, <span style="color:#e6db74">&#34;PROCEDURE&#34;</span>, <span style="color:#e6db74">&#34;FUNCTION&#34;</span>, <span style="color:#e6db74">&#34;DATABASE&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    special_characters <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>compile(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        (--|/\*|\*/)                            # 단일 행 주석, 여러 행 주석 닫기
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        |([+\-*/%&amp;|^~=&lt;&gt;!]=?)                  # 비교 연산자 및 대입 연산자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        |([.,;()</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">\[\]&#39;&#34;`])                    # 특수 문자 및 구분자
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#39;&#39;&#39;</span>, re<span style="color:#f92672">.</span>MULTILINE <span style="color:#f92672">|</span> re<span style="color:#f92672">.</span>DOTALL <span style="color:#f92672">|</span> re<span style="color:#f92672">.</span>IGNORECASE <span style="color:#f92672">|</span> re<span style="color:#f92672">.</span>VERBOSE)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> token <span style="color:#f92672">in</span> tokens:
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 특수문자는 따로 처리</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(special_characters, token):
+</span></span><span style="display:flex;"><span>            normalized_tokens<span style="color:#f92672">.</span>append(token)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># SQL 키워드는 대문자로 통일</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> token<span style="color:#f92672">.</span>upper() <span style="color:#f92672">in</span> sql_keywords:
+</span></span><span style="display:flex;"><span>            normalized_tokens<span style="color:#f92672">.</span>append(token<span style="color:#f92672">.</span>upper())
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 숫자는 &#39;NUM&#39;으로 통일</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;-?\d*\.?\d+&#34;</span>, token):
+</span></span><span style="display:flex;"><span>            normalized_tokens<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;NUM&#34;</span>)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 변수명은 &#39;VAR&#39;로 통일</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> re<span style="color:#f92672">.</span><span style="color:#66d9ef">match</span>(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;^[@#]?\w+$&#34;</span>, token):
+</span></span><span style="display:flex;"><span>            normalized_tokens<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#34;VAR&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 나머지는 &#39;STR&#39;로 통일 (문자열 취급)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            normalized_tokens<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;STR&#39;</span>)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> normalized_tokens
+</span></span></code></pre></div><p>기호를 1차 분류하고, SQL 키워드를 2차 분류, 숫자를 3차 분류, 변수는 VAR, 혹시 처리되지 않은 문자가 있으면 STR로 분류했다.</p>
+<h5 id="실행-결과-2">실행 결과</h5>
+<p><img src="/image/sqli-parsing-ai/capture03.png" alt="정규화"></p>
+<h4 id="5-vectorize">5. Vectorize</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tokens_to_vector</span>(tokens, token_to_index, max_length):
+</span></span><span style="display:flex;"><span>    vector <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros(max_length)  <span style="color:#75715e"># 최대 길이만큼 벡터 초기화</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i, token <span style="color:#f92672">in</span> enumerate(tokens):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> token <span style="color:#f92672">in</span> token_to_index:   <span style="color:#75715e"># 토큰이 인덱스에 있는 경우에만 처리</span>
+</span></span><span style="display:flex;"><span>            index <span style="color:#f92672">=</span> token_to_index[token]
+</span></span><span style="display:flex;"><span>            vector[i] <span style="color:#f92672">=</span> index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>     <span style="color:#75715e"># 인덱스를 1부터 시작하게 조정</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> vector
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># vocabulary 만들기</span>
+</span></span><span style="display:flex;"><span>vocabulary <span style="color:#f92672">=</span> set(token <span style="color:#66d9ef">for</span> tokens <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#39;normalized_query&#39;</span>] <span style="color:#66d9ef">for</span> token <span style="color:#f92672">in</span> tokens)
+</span></span><span style="display:flex;"><span>token_to_index <span style="color:#f92672">=</span> {token: i <span style="color:#66d9ef">for</span> i, token <span style="color:#f92672">in</span> enumerate(vocabulary)}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 최대 길이 설정</span>
+</span></span><span style="display:flex;"><span>max_length <span style="color:#f92672">=</span> max(len(tokens) <span style="color:#66d9ef">for</span> tokens <span style="color:#f92672">in</span> data[<span style="color:#e6db74">&#39;normalized_query&#39;</span>])
+</span></span></code></pre></div><p>최대 길이의 문장에 길이를 맞춰 벡터를 초기화하고<br>
+각 단어 및 기호를 vocabulary에 넣어 번호를 매긴 후<br>
+그 번호를 벡터에 차례로 one hot encoding한다.</p>
+<p>이를 통해 시퀀스 데이터를 생성할 수 있다.</p>
+<h5 id="실행-결과-3">실행 결과</h5>
+<p><img src="/image/sqli-parsing-ai/capture04.png" alt="벡터화"></p>
+<h4 id="5-learning">5. Learning</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>vocab_size <span style="color:#f92672">=</span> len(vocabulary)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 훈련 및 테스트 세트 분할</span>
+</span></span><span style="display:flex;"><span>X_train, X_test, y_train, y_test <span style="color:#f92672">=</span> train_test_split(data[<span style="color:#e6db74">&#39;query_vector&#39;</span>], data[<span style="color:#e6db74">&#39;Label&#39;</span>], test_size<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>, random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">42</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># RNN 모델 정의</span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> Sequential([
+</span></span><span style="display:flex;"><span>    Embedding(input_dim<span style="color:#f92672">=</span>vocab_size<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, output_dim<span style="color:#f92672">=</span><span style="color:#ae81ff">100</span>, input_length<span style="color:#f92672">=</span>max_length, mask_zero<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>),
+</span></span><span style="display:flex;"><span>    LSTM(<span style="color:#ae81ff">128</span>, return_sequences<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>),
+</span></span><span style="display:flex;"><span>    Dropout(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>    LSTM(<span style="color:#ae81ff">64</span>),
+</span></span><span style="display:flex;"><span>    Dropout(<span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>    Dense(<span style="color:#ae81ff">64</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;relu&#39;</span>),
+</span></span><span style="display:flex;"><span>    BatchNormalization(),
+</span></span><span style="display:flex;"><span>    Dense(<span style="color:#ae81ff">1</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;sigmoid&#39;</span>)
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 모델 컴파일</span>
+</span></span><span style="display:flex;"><span>model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;adam&#39;</span>, loss<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;binary_crossentropy&#39;</span>, metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;accuracy&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>X_train <span style="color:#f92672">=</span> pad_sequences(X_train, maxlen<span style="color:#f92672">=</span>max_length)
+</span></span><span style="display:flex;"><span>X_test <span style="color:#f92672">=</span> pad_sequences(X_test, maxlen<span style="color:#f92672">=</span>max_length)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 조기 종료 설정</span>
+</span></span><span style="display:flex;"><span>early_stopping <span style="color:#f92672">=</span> EarlyStopping(monitor<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;val_loss&#39;</span>, patience<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>, restore_best_weights<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 모델 훈련</span>
+</span></span><span style="display:flex;"><span>history <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>fit(X_train, y_train, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, batch_size<span style="color:#f92672">=</span><span style="color:#ae81ff">128</span>, validation_split<span style="color:#f92672">=</span><span style="color:#ae81ff">0.1</span>, callbacks<span style="color:#f92672">=</span>[early_stopping])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 모델 평가</span>
+</span></span><span style="display:flex;"><span>loss, accuracy <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>evaluate(X_test, y_test)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;테스트 정확도:&#34;</span>, accuracy)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 학습 과정 시각화</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 훈련 및 검증 데이터에 대한 정확도 그래프</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;accuracy&#39;</span>], label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;accuracy&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;val_accuracy&#39;</span>], label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;val_accuracy&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epoch&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Accuracy&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;lower right&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Training and Validation Accuracy&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 훈련 및 검증 데이터에 대한 손실 그래프</span>
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;loss&#39;</span>], label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;loss&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>plot(history<span style="color:#f92672">.</span>history[<span style="color:#e6db74">&#39;val_loss&#39;</span>], label<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;val_loss&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74">&#39;Epoch&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74">&#39;Loss&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>legend(loc<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;upper right&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>title(<span style="color:#e6db74">&#39;Training and Validation Loss&#39;</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div><p>LSTM을 사용하여 시쿼스 데이터를 학습시킨다.<br>
+1차적으로 학습시켰을 때에는 overfitting이 의심되는 결과가 나왔다. (아래 그림)</p>
+<p><img src="/image/sqli-parsing-ai/capture05.png" alt="과적합"></p>
+<p>이에 따라 Dropout 및 BatchNormalization을 추가하여 실행해보았다.
+또한 대부분 0으로 패딩되어 있는 데이터를 학습시키므로 mask_zero를 True로 설정하였다.</p>
+<p><img src="/image/sqli-parsing-ai/capture06.png" alt="시각화"></p>
+<p>Epoch를 Heuristic하게 결정(7)</p>
+<h4 id="6-validation">6. Validation</h4>
+<p><img src="/image/sqli-parsing-ai/capture07.png" alt="predict"></p>
+<p>data[&lsquo;query vector&rsquo;]를 tensorflow Tensor로 변환<br>
+이후 입력 Tensor에 대한 예측값을 반환 → 0 ~ 1의 연속적인 확률값 → 임계값 0.5로 설정
+pred list와 data[Label]을 dataframe으로 변환 후 인덱스 초기화<br>
+모델의 예측값과 실제 레이블이 일치하는 경우 True, 일치하지 않을 경우 False 비율 계산<br>
+⇒ True: 0.995&hellip; / False: 0.004&hellip;</p>
+<h5 id="다른-데이터셋으로-검증">다른 데이터셋으로 검증</h5>
+<p>Kaggle 내의 다른 SQL injection Dataset을 모델에 넣어 정상 작동하는지 재확인</p>
+<pre tabindex="0"><code># 토큰화 적용
+ex_data[&#39;tokenized_query&#39;] = ex_data[&#39;Query&#39;].apply(tokenize_query)
+
+# 정규화 적용
+ex_data[&#39;normalized_query&#39;] = ex_data[&#39;tokenized_query&#39;].apply(normalize_query)
+
+# 벡터화 적용
+ex_vocabulary = set(token for tokens in ex_data[&#39;normalized_query&#39;] for token in tokens)
+ex_token_to_index = {token: i for i, token in enumerate(vocabulary)}
+ex_max_length = max(len(tokens) for tokens in ex_data[&#39;normalized_query&#39;])
+ex_data[&#39;query_vector&#39;] = ex_data[&#39;normalized_query&#39;].apply(lambda tokens: tokens_to_vector(tokens, ex_token_to_index, ex_max_length))
+
+# tensor로 변환
+ex_tensor = tf.convert_to_tensor(np.array(ex_data[&#39;query_vector&#39;].tolist()))
+
+# 예측값 생성
+ex_prediction = model.predict(ex_tensor)
+ex_binary_predictions = (ex_prediction &gt; threshold).astype(int)
+
+# 검증
+ex_pred = []
+for b in ex_binary_predictions:
+    ex_pred.append(b[0])
+ex_pred_sr = pd.Series(ex_pred).reset_index(drop=True)
+ex_y_sr = pd.Series(ex_data[&#39;Label&#39;]).reset_index(drop=True)
+
+(ex_pred_sr == ex_y_sr).value_counts(dropna=False, normalize=True)
+</code></pre><p>True: 0.985&hellip; / False: 0.014&hellip;</p>
+<pre tabindex="0"><code>from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+
+# 정확도 계산
+accuracy = accuracy_score(ex_y_sr, ex_pred_sr)
+print(f&#34;Accuracy: {accuracy:.4f}&#34;)
+
+# 정밀도 계산
+precision = precision_score(ex_y_sr, ex_pred_sr)
+print(f&#34;Precision: {precision:.4f}&#34;)
+
+# 재현율 계산
+recall = recall_score(ex_y_sr, ex_pred_sr)
+print(f&#34;Recall: {recall:.4f}&#34;)
+
+# F1 Score 계산
+f1 = f1_score(ex_y_sr, ex_pred_sr)
+print(f&#34;F1 Score: {f1:.4f}&#34;)
+</code></pre><p>Accuracy: 0.9855<br>
+Precision: 0.9709<br>
+Recall: 0.9990<br>
+F1 Score: 0.9848</p>
+<h3 id="conclusion">conclusion</h3>
+<h4 id="모델-성능">모델 성능</h4>
+<p>Recall이 너무 높아서 위양성이 높을 가능성이 있지만, 보안은 탐지 목적인 만큼 위양성이 높은 편이 낫기 때문에 큰 문제가 되지 않을 것으로 생각된다.<br>
+Accuracy 및 F1 Score이 충분히 높기에 자체 보안 엔진 개발이 어려운 중소기업에서 SQL injection 방지를 위해 사용하기엔 적합하다고 판단된다.</p>
+
+    </div>
+</div>
+
+
+
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span>&copy; 2024 The Marauders</span>
+    
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/526avijitgupta/gokarna">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

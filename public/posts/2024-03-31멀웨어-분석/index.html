@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #4d93fd;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>시리얼 넘버 해킹</title>
+    <meta name="description" content="멀웨어 분석">
+    <meta name="keywords" content='blog, gokarna, hugo, DKU, Security'>
+
+    <meta property="og:url" content="http://localhost:1313/posts/2024-03-31%EB%A9%80%EC%9B%A8%EC%96%B4-%EB%B6%84%EC%84%9D/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="시리얼 넘버 해킹">
+    <meta property="og:description" content="멀웨어 분석">
+    <meta property="og:image" content="http://localhost:1313/image/profile/MainCat.jpg">
+    <meta property="og:image:secure_url" content="http://localhost:1313/image/profile/MainCat.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="시리얼 넘버 해킹">
+    <meta name="twitter:description" content="멀웨어 분석">
+    <meta property="twitter:domain" content="http://localhost:1313/posts/2024-03-31%EB%A9%80%EC%9B%A8%EC%96%B4-%EB%B6%84%EC%84%9D/">
+    <meta property="twitter:url" content="http://localhost:1313/posts/2024-03-31%EB%A9%80%EC%9B%A8%EC%96%B4-%EB%B6%84%EC%84%9D/">
+    <meta name="twitter:image" content="http://localhost:1313/image/profile/MainCat.jpg">
+
+    
+    <link rel="canonical" href="http://localhost:1313/posts/2024-03-31%EB%A9%80%EC%9B%A8%EC%96%B4-%EB%B6%84%EC%84%9D/">
+    <link rel='icon' type='image/png' href='http://localhost:1313/image/profile/favicon-16x16.png'>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.893af8dd3b65bd0ffe90e7af33847bd6dc9180b8fa6d6659a212a6f4b62d3e01.js" integrity="sha256-iTr43TtlvQ/&#43;kOevM4R71tyRgLj6bWZZohKm9LYtPgE="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="http://localhost:1313/">
+                <img src='/image/profile/MainCat.jpg' alt="avatar">
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">Dyun&#39;s blog</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/posts/"><span data-feather='pen-tool'></span> posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/projects/"><span data-feather='box'></span> projects </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/tags/"><span data-feather='hash'></span> tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com/alsspp01"><span data-feather='github'></span>  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target"></span>
+                <a>
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a>
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/posts/"><span data-feather='pen-tool'></span> posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/projects/"><span data-feather='box'></span> projects </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/tags/"><span data-feather='hash'></span> tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com/alsspp01"><span data-feather='github'></span>  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a>
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>시리얼 넘버 해킹</h1>
+        <small role="doc-subtitle">멀웨어 분석</small>
+        <p class="post-date">March 31, 2024
+        
+        </p>
+
+        <ul class="post-tags">
+        
+            <li class="post-tag"><a href="http://localhost:1313/tags/dku">DKU</a></li>
+        
+            <li class="post-tag"><a href="http://localhost:1313/tags/security">Security</a></li>
+        
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h3 id="과제">과제</h3>
+<p>Abexcm2-voiees.exe에서 자기 이름에 맞는 serial number 찾기</p>
+<h3 id="풀이">풀이</h3>
+<p><img src="./DKU/malware/media2/image1.png" alt="01"></p>
+<p>우선 틀렸을 때 메시지박스가 나오는 것에서 referenced string을
+검색해본다.</p>
+<p><img src="./DKU/malware/media2/image2.png" alt="02"></p>
+<p>검색해보면 두 군데에서 메시지박스에 관한 내용이 보인다.</p>
+<p><img src="./DKU/malware/media2/image3.png" alt="03"></p>
+<p>윗부분</p>
+<p><img src="./DKU/malware/media2/image4.png" alt="04"></p>
+<p>아랫부분</p>
+<p>이 중 아래에 있는 부분에서만 분기문이 사용되는 것으로 보아 아래 부분이
+시리얼이 맞는 지 확인하는 부분임을 알 수 있다.</p>
+<p>잘 살펴보면 PUSH EDX, PUSH EAX로 함수 호출 전에 로컬변수를 세팅하는 것이
+보인다.</p>
+<p>이에 따라 함수의 return 값은 EAX에 저장되고 EDX에 있는 값과 비교할
+것으로 추측된다.</p>
+<p><img src="./DKU/malware/media2/image5.png" alt="05"></p>
+<p>함수의 실행 위치에 BP를 걸어놓고 EAX, EDX의 값을 확인해보면 항상
+0019F234, 0019F224가 할당됨을 알 수 있다.</p>
+<p>해당 위치의 hex를 살펴본다.</p>
+<p><img src="./DKU/malware/media2/image6.png" alt="06"></p>
+<p>Serial에 1234를 넣었을 때</p>
+<p><img src="./DKU/malware/media2/image7.png" alt="07"></p>
+<p>Serial에 4321을 넣었을 때</p>
+<p>두 경우를 보면 다른 값은 다 똑같은데 0019F22C~0019F22F와
+0019F23C~0019F23F 의 값만 바뀌는 것을 볼 수 있다.</p>
+<p>이에 따라 해당 주소로 가서 값을 확인해본다.</p>
+<p><img src="./DKU/malware/media2/image8.png" alt="08"></p>
+<p><img src="./DKU/malware/media2/image9.png" alt="09"></p>
+<p>무슨 값을 입력하던 0019F22C~0019F22F에 있는 주소의 hex값이 변하지 않는
+점을 확인할 수 있다.</p>
+<p>이에 따라 이를 serial number로 추측하고 이를 넣어본다.</p>
+<p><img src="./DKU/malware/media2/image10.png" alt="10"></p>
+<p>정답이 맞는 것을 확인할 수 있다.</p>
+
+        
+        <div class="post-comments">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'dyun'; 
+
+  (function() {
+    var dsq = document.createElement('script'); 
+    dsq.type = 'text/javascript'; 
+    dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.head || document.body).appendChild(dsq);
+  })();
+</script>
+
+
+<script type="text/javascript">
+  var disqus_shortname = 'dyun'; 
+  (function() {
+    var dsq = document.createElement('script'); 
+    dsq.type = 'text/javascript'; 
+    dsq.async = true;
+    dsq.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+    (document.head || document.body).appendChild(dsq);
+  })();
+</script>
+        </div>
+        
+    </div>
+
+    <div class="prev-next">
+        
+            
+                
+<div class="prev-post">
+    <p>
+        <a href="/posts/2024-03-22%EB%A9%80%EC%9B%A8%EC%96%B4-%EB%B6%84%EC%84%9D/">
+            &#8592;
+            Previous:
+            비밀번호 해킹
+        </a>
+    </p>
+    <p class="prev-post-date">
+        March 22, 2024
+    </p>
+</div>
+
+
+
+<div class="next-post">
+    <p>
+        <a href="/posts/first_post/">
+            Next:
+            Theme Origin URL
+            &#8594;
+        </a>
+    </p>
+        <p class="next-post-date">
+            April 11, 2024
+        </p>
+</div>
+
+
+            
+        
+    </div>
+
+    
+    
+    <svg id="btt-button" class="arrow-logo" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" onclick="topFunction()" title="Go to top">
+        
+        <path d="M177 159.7l136 136c9.4 9.4 9.4 24.6 0 33.9l-22.6 22.6c-9.4 9.4-24.6 9.4-33.9 0L160 255.9l-96.4 96.4c-9.4 9.4-24.6 9.4-33.9 0L7 329.7c-9.4-9.4-9.4-24.6 0-33.9l136-136c9.4-9.5 24.6-9.5 34-.1z"/>
+    </svg>
+ <script>
+    let backToTopButton = document.getElementById("btt-button");
+
+    window.onscroll = function() {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
+    }
+
+    function topFunction() {
+        smoothScrollToTop();
+    }
+
+    function smoothScrollToTop() {
+        const scrollToTop = () => {
+            const c = document.documentElement.scrollTop || document.body.scrollTop;
+            if (c > 0) {
+                window.requestAnimationFrame(scrollToTop);
+                window.scrollTo(0, 0);
+            }
+        };
+        scrollToTop();
+    }
+</script>
+
+
+    
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+    <span>&copy; 2024 The Marauders</span>
+    
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/526avijitgupta/gokarna">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
