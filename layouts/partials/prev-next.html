@@ -4,11 +4,6 @@
     <span class="prev-next-title">{{ .Title }}</span>
     {{ if .Description }}<span class="prev-next-desc">{{ .Description }}</span>{{ end }}
     <span class="prev-next-date">{{ dateFormat "January 2, 2006" .Date }}</span>
-    {{ if .Params.tags }}
-    <span class="prev-next-tags">
-        {{ range .Params.tags }}<span class="prev-next-tag">{{ . }}</span>{{ end }}
-    </span>
-    {{ end }}
 </a>
 {{ end }}
 
@@ -18,10 +13,5 @@
     <span class="prev-next-title">{{ .Title }}</span>
     {{ if .Description }}<span class="prev-next-desc">{{ .Description }}</span>{{ end }}
     <span class="prev-next-date">{{ dateFormat "January 2, 2006" .Date }}</span>
-    {{ if .Params.tags }}
-    <span class="prev-next-tags">
-        {{ range .Params.tags }}<span class="prev-next-tag">{{ . }}</span>{{ end }}
-    </span>
-    {{ end }}
 </a>
 {{ end }}
