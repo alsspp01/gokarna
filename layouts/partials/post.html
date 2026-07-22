@@ -11,15 +11,22 @@
             <li class="post-tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
         </ul>
+
+        {{ if .Site.Params.likesApiBase }}
+        <div id="social-actions" data-post-key="{{ .RelPermalink }}" data-api-base="{{ .Site.Params.likesApiBase }}">
+            <button id="like-button" type="button" aria-label="Like this post">
+                <span class="like-icon">&#9825;</span> <span id="like-count">0</span>
+            </button>
+            <button id="share-button" type="button" aria-label="Copy link to this post">
+                Share
+            </button>
+            <span id="share-confirm" class="share-confirm" hidden>Copied!</span>
+        </div>
+        {{ end }}
     </div>
 
     <div class="post-content">
         {{ .Content }}
-        {{ if .Site.Params.DisqusShortname }}
-        <div class="post-comments">
-            {{ template "_internal/disqus.html" . }}
-        </div>
-        {{ end }}
     </div>
 
     <div class="prev-next">

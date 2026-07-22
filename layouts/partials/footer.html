@@ -4,6 +4,14 @@
     {{ .Site.Params.CustomFooterHTML | safeHTML }}
     {{ end }}
 
+    {{ range .Site.Params.SocialIcons }}
+    {{ if eq .name "email" }}
+    <a class="footer-email-icon" href="{{ .url }}" aria-label="Email">
+        <img class="svg-inject" src="/svg/icons/{{ .name }}.svg" alt="">
+    </a>
+    {{ end }}
+    {{ end }}
+
     {{ if .Site.Params.footer }}
     <span>&copy; {{ now.Year }} {{ .Site.Params.Footer}}</span>
     {{ end }}
