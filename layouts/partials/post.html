@@ -20,7 +20,7 @@
     {{ if .Site.Params.likesApiBase }}
     <div id="social-actions" data-post-key="{{ .RelPermalink }}" data-api-base="{{ .Site.Params.likesApiBase }}">
         <button id="like-button" type="button" aria-label="Like this post">
-            <span class="like-icon">&#9825;</span> <span id="like-count">0</span>
+            <span class="like-icon" id="like-icon">&#9825;</span> <span id="like-count">0</span>
         </button>
         <button id="share-button" type="button" aria-label="Copy link to this post">
             Share
