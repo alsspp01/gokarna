@@ -518,6 +518,16 @@ table td {
    */
   width: 73%;
 }
+.post-list-subtitle {
+  display: block;
+  width: 100%;
+  color: gray;
+  font-size: 0.85em;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .tags-list .post-tags {
   margin-top: 50px;
 }
