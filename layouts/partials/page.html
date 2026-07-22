@@ -2,6 +2,7 @@
 
     <div class="post-header-section">
         <h1>{{ .Title }}</h1>
+        {{ if .Description }}<small role="doc-subtitle">{{ .Description }}</small>{{ end }}
     </div>
 
     <div class="post-content">
