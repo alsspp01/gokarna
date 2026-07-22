@@ -645,9 +645,8 @@ table td {
 }
 
 .prev-next-card {
-  flex: 0 0 auto;
-  width: 220px;
-  height: 220px;
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -702,10 +701,8 @@ table td {
 }
 
 @media (max-width: 500px) {
-  .prev-next-card {
-    width: 100%;
-    height: auto;
-    min-height: 160px;
+  .prev-next {
+    flex-direction: column;
   }
 }
 
