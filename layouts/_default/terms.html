@@ -12,7 +12,7 @@
     </div>
 
     <ul class="post-tags" id="tagsSelectableList">
-        {{ range $.Site.Taxonomies.tags.ByCount }}
+        {{ range $.Site.Taxonomies.tags.Alphabetical }}
         <li class="post-tag">
             <a href="/tags/{{ .Name | urlize }}/" data-tag="{{ .Name }}">
                 <div class="tag-name">{{ .Name }}</div>
