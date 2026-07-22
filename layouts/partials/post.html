@@ -1,16 +1,16 @@
 <div class="post container">
     <div class="post-header-section">
-        <h1>{{ .Title }}</h1>
-        <small role="doc-subtitle">{{ .Description }}</small>
-        <p class="post-date">{{ dateFormat (or .Site.Params.dateFormat "January 2, 2006") .Date}}
-        {{ if lt .Date .Lastmod }} | Updated {{ dateFormat .Site.Params.dateFormat .Lastmod }}{{ end }}
-        </p>
-
         <ul class="post-tags">
         {{ range .Params.tags }}
             <li class="post-tag"><a href="{{ "tags/" | absLangURL }}{{ . | urlize }}">{{ . }}</a></li>
         {{ end }}
         </ul>
+
+        <h1>{{ .Title }}</h1>
+        <small role="doc-subtitle">{{ .Description }}</small>
+        <p class="post-date">{{ dateFormat (or .Site.Params.dateFormat "January 2, 2006") .Date}}
+        {{ if lt .Date .Lastmod }} | Updated {{ dateFormat .Site.Params.dateFormat .Lastmod }}{{ end }}
+        </p>
     </div>
 
     <div class="post-content">
