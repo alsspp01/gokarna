@@ -6,9 +6,7 @@
 
     {{ range .Site.Params.SocialIcons }}
     {{ if eq .name "email" }}
-    <a class="footer-email-icon" href="{{ .url }}" aria-label="Email">
-        <img class="svg-inject" src="/svg/icons/{{ .name }}.svg" alt="">
-    </a>
+    <a class="footer-contact-link" href="{{ .url }}">Contact (&#128231;)</a>
     {{ end }}
     {{ end }}
 
