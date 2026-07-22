@@ -19,6 +19,10 @@ html {
   background: rgba(var(--dark-primary-color), 1);
 }
 
+.nav-search-box {
+  background: rgba(var(--dark-primary-color), 1);
+}
+
 .nav-links .nav-icons-divider {
   color: var(--dark-secondary-color);
 }

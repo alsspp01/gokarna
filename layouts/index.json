@@ -1,0 +1,13 @@
+{{- $posts := where .Site.Pages "Params.type" "post" -}}
+[
+{{- range $index, $p := $posts -}}
+  {{- if $index }},{{ end }}
+  {
+    "title": {{ $p.Title | jsonify }},
+    "url": {{ $p.RelPermalink | jsonify }},
+    "description": {{ $p.Description | jsonify }},
+    "tags": {{ $p.Params.tags | jsonify }},
+    "date": {{ $p.Date.Format "2006-01-02" | jsonify }}
+  }
+{{- end }}
+]

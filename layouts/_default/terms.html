@@ -5,16 +5,24 @@
     {{if eq (len $.Site.Taxonomies.tags) 0}}
         {{ i18n "nothing" }}
     {{else}}
-    <ul class="post-tags">
+
+    <div class="tags-logic-switch" id="tagsLogicSwitch">
+        <button class="tags-logic-option active" type="button" data-logic="AND">AND</button>
+        <button class="tags-logic-option" type="button" data-logic="OR">OR</button>
+    </div>
+
+    <ul class="post-tags" id="tagsSelectableList">
         {{ range $.Site.Taxonomies.tags.ByCount }}
         <li class="post-tag">
-            <a href="/tags/{{ .Name | urlize }}/">
+            <a href="/tags/{{ .Name | urlize }}/" data-tag="{{ .Name }}">
                 <div class="tag-name">{{ .Name }}</div>
                 <div class="tag-posts-count">{{ .Count }}</div>
             </a>
         </li>
         {{ end }}
     </ul>
+
+    <div id="tagsFilterResults" class="tags-filter-results"></div>
     {{ end }}
 
 </div>

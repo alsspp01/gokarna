@@ -23,6 +23,22 @@
             {{ end }}
 
             <span class="nav-icons-divider"></span>
+            <div class="nav-link">
+                <a href="{{ "tags/" | absLangURL }}" aria-label="Tags">
+                    <span data-feather="hash"></span>
+                </a>
+            </div>
+
+            <div class="nav-link nav-search" id="navSearch">
+                <a id="searchToggle" role="button" aria-label="Search posts and tags">
+                    <span data-feather="search"></span>
+                </a>
+                <div id="searchBox" class="nav-search-box" hidden>
+                    <input type="text" id="searchInput" placeholder="Search posts and tags...">
+                    <div id="searchResults" class="nav-search-results"></div>
+                </div>
+            </div>
+
             <div class="nav-link dark-theme-toggle">
                 <span class="sr-only dark-theme-toggle-screen-reader-target"></span>
                 <a>
@@ -46,6 +62,11 @@
                     </a>
                 </li>
                 {{ end }}
+                <li class="nav-item">
+                    <a href="{{ "tags/" | absLangURL }}">
+                        <span data-feather="hash"></span> {{ i18n "tags" }}
+                    </a>
+                </li>
                 <li class="nav-item dark-theme-toggle">
                     <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
                     <a>

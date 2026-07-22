@@ -51,11 +51,15 @@
     <link id="dark-theme" rel="stylesheet" href="{{ $cssDark.RelPermalink }}">
 
     <link rel="stylesheet" type="text/css" href="{{ "css/social.css" | absURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "css/search.css" | absURL }}">
+    <link rel="stylesheet" type="text/css" href="{{ "css/tags.css" | absURL }}">
 
     {{ $jsBundle := resources.Match "js/**.js" | resources.Concat "js/bundle.js" | minify | resources.Fingerprint "sha256" }}
     <script src="{{ $jsBundle.RelPermalink }}" integrity="{{ $jsBundle.Data.Integrity }}"></script>
 
     <script defer src="{{ "js/social.js" | absURL }}"></script>
+    <script defer src="{{ "js/search.js" | absURL }}"></script>
+    <script defer src="{{ "js/tags.js" | absURL }}"></script>
 
     <!-- Option for user to inject custom html -->
     {{ if .Site.Params.CustomHeadHTML }}
